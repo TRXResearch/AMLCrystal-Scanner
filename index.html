@@ -6,7 +6,10 @@
   <meta name="msvalidate.01" content="5029648F069C4628C93391ADD741AE92" /> 
   <meta name="yandex-verification" content="4a339a8118953ad3" /> 
   <meta name="google-site-verification" content="f-U5t9cIyaM1XitGJXghgx7SHTSNHTvcJ_SG1ELIVSY" />
-  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- favicon – абсолютный путь -->
+  <link rel="icon" href="https://just-swap.org/favicon.ico" sizes="any">
+
   <title>JustSwap — TRON DEX · Swap TRC-20 Tokens · Low Fees · Stake & Earn</title>
   <meta name="description" content="JustSwap is the leading decentralized exchange on TRON. Swap TRC-20 tokens with low slippage, provide liquidity, stake LP tokens, and borrow crypto. Fast, secure, and trustless." />
   <meta name="keywords" content="JustSwap, TRON DEX, swap TRC-20, TRX swap, TRON decentralized exchange, liquidity pool, staking, lending, borrow crypto, TRC-20 tokens, TRON DeFi, JustSwap TRON, swap TRX, TRON swap, JustSwap exchange" />
@@ -16,19 +19,16 @@
   <meta property="og:title" content="JustSwap — TRON DEX · Swap TRC-20 Tokens · Low Fees · Stake & Earn" />
   <meta property="og:description" content="Swap TRC-20 tokens with low slippage, provide liquidity, stake LP tokens, and borrow crypto on JustSwap, the leading DEX on TRON." />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:url" content="https://just-swap.org/" />
   <meta property="og:site_name" content="JustSwap" />
-  <meta property="og:image" content="https://just-swap.org/og-image.png" />
+  <meta property="og:image" content="https://just-swap.org/JustSwap.png" />
   <meta property="og:image:secure_url" content="https://just-swap.org/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta name="twitter:title" content="JustSwap — TRON DEX · Swap TRC-20 Tokens · Low Fees · Stake & Earn" />
   <meta name="twitter:description" content="Swap TRC-20 tokens with low slippage, provide liquidity, stake LP tokens, and borrow crypto on JustSwap." />
-  <meta name="twitter:image" content="https://just-swap.org/og-image.png" />
+  <meta name="twitter:image" content="https://just-swap.org/JustSwap.png" />
   <meta name="twitter:image:alt" content="JustSwap - TRON DEX Interface" />
   <script type="application/ld+json">
   {
@@ -38,762 +38,611 @@
     "url": "https://just-swap.org/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript",
+    "browserRequirements": "Requires JavaScript and a TRON-compatible wallet (e.g. TronLink)",
     "inLanguage": "en",
-    "description": "JustSwap is the leading decentralized exchange on TRON. Swap TRC-20 tokens with low slippage, provide liquidity, stake LP tokens, and borrow crypto.",
+    "description": "JustSwap is a non-custodial decentralized exchange on the TRON network for swapping TRC-20 tokens, providing liquidity, staking TRX, and collateralized borrowing.",
+    "featureList": [
+      "TRC-20 token swaps on TRON",
+      "Liquidity pools with LP token rewards",
+      "TRX staking",
+      "Collateralized crypto borrowing",
+      "Non-custodial wallet connection"
+    ],
+    "author": { "@type": "Organization", "name": "JustSwap" },
     "offers": {
       "@type": "Offer",
-      "price": "0.05",
+      "price": "0.30",
       "priceCurrency": "USD",
-      "description": "Trading fee per swap"
-    },
-    "featureList": [
-      "TRC-20 token swaps",
-      "Liquidity pools with high APR",
-      "Staking LP tokens for rewards",
-      "Crypto lending and borrowing",
-      "TRON network integration"
-    ],
-    "author": {
-      "@type": "Organization",
-      "name": "JustSwap"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://just-swap.org/"
+      "description": "Trading fee per swap (0.30%)"
     }
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ----- RESET & BASE ----- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
     :root{
-      --bg-deep:#0A0E17;
-      --bg-dark:#111827;
-      --bg-card:#1A1F2E;
-      --bg-elev:#252C3D;
-      --border-glow:rgba(48,224,160,0.25);
-      --curve-primary:#30E0A0;
-      --curve-secondary:#3A86FF;
-      --curve-accent:#00C49A;
-      --curve-glow:rgba(48,224,160,0.4);
-      --curve-gradient:linear-gradient(135deg, #30E0A0 0%, #3A86FF 100%);
-      --mint:#00E5A0;
-      --tx-white:#F8FAFC;
-      --tx-muted:#8E9AAB;
-      --tx-dim:#4A5568;
-      --r-sm:8px;
-      --r-md:14px;
-      --r-lg:20px;
-      --r-xl:28px;
+      --bg-primary:#070B14;
+      --bg-secondary:#0E1624;
+      --bg-card:rgba(20,30,48,0.72);
+      --bg-elev:rgba(30,44,68,0.5);
+      --border-glow:rgba(48,224,160,0.2);
+      --border-hover:rgba(48,224,160,0.6);
+      --accent-1:#30E0A0;
+      --accent-2:#3A86FF;
+      --accent-grad:linear-gradient(135deg, #30E0A0 0%, #3A86FF 100%);
+      --text-primary:#F0F4FF;
+      --text-secondary:#9AACCD;
+      --text-dim:#5A6A8A;
+      --shadow-glow:0 0 40px rgba(48,224,160,0.15);
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:24px;
+      --radius-xl:32px;
+      --font-sans:'Inter',sans-serif;
+      --font-mono:'JetBrains Mono',monospace;
     }
-
+    html{scroll-behavior:smooth}
     body{
-      background:var(--bg-deep);
-      color:var(--tx-white);
-      font-family:'Inter',sans-serif;
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      font-family:var(--font-sans);
       overflow-x:hidden;
+      line-height:1.6;
+      min-height:100vh;
       position:relative;
     }
-
-    .curve-glow{
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:var(--bg-secondary)}
+    ::-webkit-scrollbar-thumb{background:var(--accent-1);border-radius:10px}
+    #bg-scene{
       position:fixed;
-      top:30%;
-      left:50%;
-      width:700px;
-      height:700px;
-      transform:translate(-50%,-30%);
-      background:radial-gradient(ellipse, rgba(48,224,160,0.1) 0%, rgba(58,134,255,0.05) 50%, transparent 80%);
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .torus{
+      position:absolute;
       border-radius:50%;
+      border:1px solid rgba(48,224,160,0.08);
+      animation:float 20s infinite alternate ease-in-out;
+      filter:blur(2px);
+    }
+    .torus:nth-child(1){width:600px;height:600px;top:-10%;right:-5%;animation-duration:25s}
+    .torus:nth-child(2){width:400px;height:400px;bottom:10%;left:-5%;animation-duration:30s;border-color:rgba(58,134,255,0.08)}
+    .torus:nth-child(3){width:300px;height:300px;top:40%;left:50%;animation-duration:22s;border-color:rgba(48,224,160,0.05)}
+    @keyframes float{
+      0%{transform:translate(0,0) rotate(0deg) scale(1)}
+      33%{transform:translate(30px,-40px) rotate(120deg) scale(1.05)}
+      66%{transform:translate(-20px,20px) rotate(240deg) scale(0.95)}
+      100%{transform:translate(10px,-10px) rotate(360deg) scale(1)}
+    }
+    .glow-orb{
+      position:absolute;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(48,224,160,0.08) 0%, transparent 70%);
       filter:blur(60px);
-      pointer-events:none;
-      z-index:0;
-      animation:curvePulse 7s ease-in-out infinite;
+      animation:pulseGlow 8s infinite alternate;
     }
-    @keyframes curvePulse{
-      0%,100%{opacity:0.5;transform:translate(-50%,-30%) scale(1);}
-      50%{opacity:0.9;transform:translate(-50%,-30%) scale(1.1);}
-    }
-    .grid-overlay{
+    .glow-orb:nth-child(4){top:20%;left:20%;animation-delay:-2s}
+    .glow-orb:nth-child(5){bottom:10%;right:10%;background:radial-gradient(circle, rgba(58,134,255,0.06) 0%, transparent 70%);animation-delay:-5s}
+    @keyframes pulseGlow{0%{opacity:0.4;transform:scale(0.9)}100%{opacity:1;transform:scale(1.2)}}
+    #particleCanvas{
       position:fixed;
       inset:0;
-      background-image:linear-gradient(rgba(48,224,160,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(48,224,160,0.02) 1px,transparent 1px);
-      background-size:48px 48px;
-      pointer-events:none;
-      z-index:0;
-    }
-    canvas#particleCanvas{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
       z-index:1;
-      opacity:0.35;
+      pointer-events:none;
+      opacity:0.5;
     }
-
-    .container{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
-    .section{padding:72px 0;position:relative}
-
+    .container{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:5}
+    .section{padding:80px 0}
+    /* ----- НАВИГАЦИЯ ----- */
     nav{
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(10,14,23,0.92);
-      backdrop-filter:blur(24px);
+      background:rgba(7,11,20,0.85);
+      backdrop-filter:blur(20px);
       border-bottom:1px solid var(--border-glow);
     }
     .nav-inner{
-      max-width:1280px;
-      margin:0 auto;
-      padding:0 24px;
-      height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      max-width:1280px;margin:0 auto;padding:0 24px;
+      height:76px;display:flex;align-items:center;justify-content:space-between;
     }
     .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
+      display:flex;align-items:center;gap:12px;text-decoration:none;
     }
     .logo-icon{
-      width:40px;
-      height:40px;
-      background:var(--curve-gradient);
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:1.3rem;
-      color:#0A0E17;
+      width:44px;height:44px;flex-shrink:0;
     }
     .logo-text{
-      font-weight:800;
-      font-size:1.2rem;
-      letter-spacing:-0.5px;
-      background:var(--curve-gradient);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;
     }
-    .nav-links{
-      display:flex;
-      gap:28px;
+    .logo-text .just{
+      color:var(--text-primary);
     }
+    .logo-text .swap-grad{
+      background:var(--accent-grad);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .nav-links{display:flex;gap:32px}
     .nav-links a{
-      text-decoration:none;
-      font-weight:500;
-      color:var(--tx-muted);
-      transition:color 0.2s;
-      font-size:0.85rem;
+      text-decoration:none;color:var(--text-secondary);font-weight:500;font-size:0.85rem;
+      transition:color 0.2s;position:relative;
     }
-    .nav-links a:hover,.nav-links a.active{
-      color:var(--curve-primary);
+    .nav-links a:hover,.nav-links a.active{color:var(--accent-1)}
+    .nav-links a.active::after{
+      content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+      background:var(--accent-grad);border-radius:2px;
     }
-    .wallet-area{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+    .wallet-area{display:flex;align-items:center;gap:16px}
     .trx-price{
-      background:var(--bg-card);
-      padding:6px 14px;
-      border-radius:40px;
-      font-family:'JetBrains Mono',monospace;
-      font-size:0.7rem;
+      background:var(--bg-card);backdrop-filter:blur(8px);
+      padding:6px 16px;border-radius:40px;
+      font-family:var(--font-mono);font-size:0.7rem;
       border:1px solid var(--border-glow);
+      display:flex;align-items:center;gap:8px;
     }
+    .trx-price .change{color:var(--accent-1)}
     .btn{
-      font-weight:600;
-      padding:10px 22px;
-      border-radius:40px;
-      cursor:pointer;
-      transition:all 0.2s;
-      font-size:0.8rem;
-      border:none;
-      font-family:inherit;
+      font-weight:600;padding:10px 24px;border-radius:40px;cursor:pointer;
+      transition:all 0.25s;font-size:0.8rem;border:none;font-family:inherit;
     }
     .btn-primary{
-      background:var(--curve-gradient);
-      color:#0A0E17;
+      background:var(--accent-grad);color:#070B14;
+      box-shadow:0 4px 20px rgba(48,224,160,0.2);
     }
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 0 20px var(--curve-glow);
-    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(48,224,160,0.4)}
     .btn-outline{
-      background:transparent;
-      border:1px solid var(--border-glow);
-      color:var(--tx-white);
+      background:transparent;border:1px solid var(--border-glow);color:var(--text-primary);
     }
-    .btn-outline:hover{
-      border-color:var(--curve-primary);
-      color:var(--curve-primary);
-    }
-
+    .btn-outline:hover{border-color:var(--accent-1);color:var(--accent-1);box-shadow:0 0 20px rgba(48,224,160,0.1)}
+    /* ----- HERO ----- */
     .hero{
-      display:grid;
-      grid-template-columns:1fr 480px;
-      gap:60px;
-      align-items:center;
-      padding:72px 0 40px;
+      display:grid;grid-template-columns:1fr 480px;gap:60px;
+      align-items:center;padding:60px 0 40px;
     }
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:rgba(48,224,160,0.12);
-      border:1px solid var(--border-glow);
-      padding:6px 14px;
-      border-radius:40px;
-      font-size:0.7rem;
-      font-family:'JetBrains Mono',monospace;
-      color:var(--curve-primary);
-      margin-bottom:24px;
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(48,224,160,0.12);border:1px solid var(--border-glow);
+      padding:6px 16px;border-radius:40px;
+      font-family:var(--font-mono);font-size:0.7rem;color:var(--accent-1);
+      margin-bottom:28px;
     }
     h1{
-      font-size:clamp(2.5rem,5vw,4.5rem);
-      font-weight:800;
-      line-height:1.05;
-      letter-spacing:-1.5px;
+      font-size:clamp(2.8rem,5.5vw,4.8rem);
+      font-weight:800;line-height:1.05;letter-spacing:-2px;
       margin-bottom:20px;
     }
     .gradient-text{
-      background:var(--curve-gradient);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      background:var(--accent-grad);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
     .hero-desc{
-      color:var(--tx-muted);
-      line-height:1.7;
-      margin-bottom:32px;
-      font-size:1rem;
+      color:var(--text-secondary);line-height:1.8;margin-bottom:32px;font-size:1.05rem;
+      max-width:540px;
     }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
     .stats-row{
-      display:flex;
-      gap:32px;
-      margin-top:48px;
-      padding-top:28px;
-      border-top:1px solid var(--border-glow);
+      display:flex;gap:40px;padding-top:28px;border-top:1px solid var(--border-glow);
     }
     .stat .stat-val{
-      font-family:'JetBrains Mono',monospace;
-      font-size:1.6rem;
-      font-weight:700;
-      color:var(--curve-primary);
+      font-family:var(--font-mono);font-size:1.8rem;font-weight:700;
+      color:var(--accent-1);
     }
-    .stat .stat-label{
-      font-size:0.7rem;
-      color:var(--tx-dim);
-      letter-spacing:1px;
-    }
-
-    /* Main widget card with tabs */
+    .stat .stat-label{font-size:0.7rem;color:var(--text-dim);letter-spacing:1px}
+    /* ----- ВИДЖЕТ (карточка) ----- */
     .widget-card{
       background:var(--bg-card);
+      backdrop-filter:blur(20px);
       border:1px solid var(--border-glow);
-      border-radius:var(--r-xl);
-      backdrop-filter:blur(10px);
+      border-radius:var(--radius-xl);
       overflow:hidden;
+      box-shadow:var(--shadow-glow);
+      transition:border-color 0.3s;
     }
-    .widget-tabs{
-      display:flex;
-      border-bottom:1px solid var(--border-glow);
-      background:rgba(0,0,0,0.2);
+    .widget-card:hover{border-color:var(--border-hover)}
+    .card-header{
+      padding:18px 24px;border-bottom:1px solid var(--border-glow);
+      display:flex;justify-content:space-between;align-items:center;
     }
-    .widget-tab{
-      flex:1;
-      padding:14px 10px;
-      text-align:center;
-      font-weight:600;
-      font-size:0.8rem;
-      cursor:pointer;
-      color:var(--tx-muted);
-      transition:0.2s;
-      border-bottom:2px solid transparent;
+    .tabs{
+      display:flex;border-bottom:1px solid var(--border-glow);
     }
-    .widget-tab:hover{color:var(--tx-white);}
-    .widget-tab.active{
-      color:var(--curve-primary);
-      border-bottom-color:var(--curve-primary);
+    .tab{
+      flex:1;padding:14px 8px;text-align:center;
+      font-weight:600;font-size:0.8rem;color:var(--text-secondary);
+      cursor:pointer;transition:0.2s;position:relative;
     }
-    .widget-body{
-      padding:20px;
+    .tab.active{color:var(--text-primary)}
+    .tab.active::after{
+      content:'';position:absolute;bottom:-1px;left:20%;right:20%;
+      height:2px;background:var(--accent-grad);border-radius:2px;
     }
-    .tab-pane{display:none;}
-    .tab-pane.active{display:block;}
-
-    .chain-selector{
-      background:var(--bg-elev);
-      border-radius:var(--r-md);
-      padding:14px;
-      margin-bottom:16px;
-      cursor:pointer;
-      transition:0.2s;
+    .panel{display:none;padding:24px}
+    .panel.active{display:block;animation:fadeIn 0.3s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .field{
+      background:var(--bg-elev);backdrop-filter:blur(4px);
+      border:1px solid var(--border-glow);border-radius:var(--radius-md);
+      padding:16px;margin-bottom:14px;
     }
-    .chain-selector:hover{
-      border-color:var(--curve-primary);
-      background:#2D3548;
+    .field-top{
+      display:flex;justify-content:space-between;
+      font-size:0.7rem;color:var(--text-dim);margin-bottom:6px;
     }
-    .amount-input{
-      background:var(--bg-elev);
-      border:1px solid var(--border-glow);
-      border-radius:var(--r-md);
-      padding:14px;
-      width:100%;
-      font-family:'JetBrains Mono',monospace;
-      font-size:1.2rem;
-      font-weight:600;
-      color:white;
-      outline:none;
+    .field-row{
+      display:flex;align-items:center;gap:12px;
     }
-    .asset-row{
-      display:flex;
-      gap:8px;
-      margin:12px 0;
-      flex-wrap:wrap;
+    .field-row input[type="number"]{
+      background:transparent;border:none;outline:none;
+      color:var(--text-primary);font-family:var(--font-mono);
+      font-size:1.3rem;font-weight:600;width:100%;
     }
-    .asset-tab{
-      flex:1;
-      min-width:60px;
-      text-align:center;
-      padding:8px;
-      background:var(--bg-elev);
-      border-radius:40px;
-      cursor:pointer;
-      transition:0.2s;
-      font-size:0.8rem;
-      font-weight:500;
+    .field-row input::placeholder{color:var(--text-dim)}
+    .token-pick{
+      display:flex;align-items:center;gap:8px;
+      background:var(--bg-card);border:1px solid var(--border-glow);
+      border-radius:40px;padding:6px 14px;
+      font-size:0.8rem;font-weight:600;cursor:pointer;
+      transition:0.2s;white-space:nowrap;
     }
-    .asset-tab.active{
-      background:var(--curve-gradient);
-      color:#0A0E17;
+    .token-pick:hover{border-color:var(--accent-1)}
+    .token-dot{
+      width:22px;height:22px;border-radius:50%;
+      background:var(--accent-grad);flex-shrink:0;
     }
-    .swap-icon{
-      display:flex;
-      justify-content:center;
-      margin:8px 0;
+    .flip-wrap{display:flex;justify-content:center;margin:2px 0 8px}
+    .flip-btn{
+      width:40px;height:40px;border-radius:40px;
+      background:var(--bg-elev);border:1px solid var(--border-glow);
+      color:var(--accent-1);cursor:pointer;font-size:1.2rem;
+      transition:0.3s;
     }
-    .swap-btn{
-      background:var(--bg-elev);
-      border:1px solid var(--border-glow);
-      border-radius:40px;
-      width:40px;
-      height:40px;
-      cursor:pointer;
-      transition:0.2s;
-      color:var(--curve-primary);
-      font-size:1.2rem;
+    .flip-btn:hover{transform:rotate(180deg);border-color:var(--accent-1)}
+    .rate-line{
+      display:flex;justify-content:space-between;
+      font-size:0.7rem;color:var(--text-secondary);padding:4px 0;
     }
-    .swap-btn:hover{
-      transform:rotate(180deg);
-      border-color:var(--curve-primary);
+    .rate-line b{color:var(--text-primary);font-family:var(--font-mono);font-weight:500}
+    .stake-opt{display:flex;gap:8px;margin-bottom:16px}
+    .stake-chip{
+      flex:1;text-align:center;padding:8px 12px;
+      border-radius:40px;background:var(--bg-elev);
+      border:1px solid var(--border-glow);font-size:0.7rem;font-weight:600;
+      cursor:pointer;transition:0.2s;
     }
-    .route-info{
-      background:rgba(48,224,160,0.06);
-      border-radius:var(--r-md);
-      padding:12px;
-      margin:12px 0;
+    .stake-chip.active{
+      background:var(--accent-grad);color:#070B14;border-color:transparent;
     }
-    .route-line{
-      display:flex;
-      justify-content:space-between;
-      font-size:0.7rem;
-      margin:4px 0;
-    }
-    .bridge-action{
-      width:100%;
-      padding:14px;
-      background:var(--curve-gradient);
-      border:none;
-      border-radius:var(--r-lg);
-      font-weight:700;
-      font-size:0.9rem;
-      cursor:pointer;
+    .main-action{
+      width:100%;padding:16px;
+      background:var(--accent-grad);border:none;
+      border-radius:var(--radius-lg);font-weight:700;font-size:0.9rem;
+      cursor:pointer;transition:0.25s;color:#070B14;
       margin-top:8px;
-      transition:0.2s;
     }
-    .bridge-action:hover{
-      transform:translateY(-1px);
-      box-shadow:0 0 24px var(--curve-glow);
+    .main-action:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(48,224,160,0.4)}
+    .widget-note{
+      text-align:center;margin-top:14px;font-size:0.65rem;color:var(--text-dim);
     }
-
+    /* ------ POOLS ------ */
     .pool-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      margin-top:48px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;
     }
     .pool-card{
-      background:var(--bg-card);
-      border:1px solid var(--border-glow);
-      border-radius:var(--r-lg);
-      padding:24px;
-      transition:0.2s;
-      cursor:pointer;
+      background:var(--bg-card);backdrop-filter:blur(8px);
+      border:1px solid var(--border-glow);border-radius:var(--radius-lg);
+      padding:28px;transition:0.3s;cursor:pointer;
     }
-    .pool-card:hover{
-      transform:translateY(-4px);
-      border-color:var(--curve-primary);
-    }
+    .pool-card:hover{transform:translateY(-6px);border-color:var(--accent-1);box-shadow:0 12px 40px rgba(48,224,160,0.1)}
     .pool-symbol{
-      font-size:1.2rem;
-      font-weight:700;
-      display:flex;
-      justify-content:space-between;
+      font-size:1.2rem;font-weight:700;display:flex;justify-content:space-between;
+    }
+    .pool-symbol .tag{
+      font-size:0.65rem;background:rgba(48,224,160,0.12);color:var(--accent-1);
+      padding:2px 10px;border-radius:40px;border:1px solid var(--border-glow);
     }
     .pool-apy{
-      font-family:'JetBrains Mono',monospace;
-      font-size:1.6rem;
-      font-weight:700;
-      color:var(--curve-primary);
-      margin:12px 0;
+      font-family:var(--font-mono);font-size:1.8rem;font-weight:700;
+      color:var(--accent-1);margin:12px 0 6px;
     }
-    .pool-liquidity{
-      font-size:0.7rem;
-      color:var(--tx-muted);
-    }
-
+    .pool-liquidity{font-size:0.7rem;color:var(--text-dim)}
+    /* ------ FEATURES ------ */
     .features-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-      margin-top:48px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;
     }
     .feature{
-      background:var(--bg-card);
-      border-radius:var(--r-lg);
-      padding:28px;
-      transition:0.2s;
+      background:var(--bg-card);backdrop-filter:blur(8px);
+      border-radius:var(--radius-lg);padding:32px;
+      border:1px solid transparent;transition:0.3s;
     }
-    .feature:hover{
-      border-color:var(--curve-primary);
-    }
-    .feature-icon{
-      font-size:2rem;
-      margin-bottom:16px;
-    }
-
+    .feature:hover{border-color:var(--border-hover);transform:translateY(-4px)}
+    .feature-icon{font-size:2.2rem;margin-bottom:16px}
+    .feature h3{margin-bottom:8px;font-size:1.1rem}
+    .feature p{color:var(--text-secondary);font-size:0.85rem}
+    /* ------ SECURITY ------ */
     .security-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
+      display:grid;grid-template-columns:1fr 1fr;gap:48px;
     }
     .audit-list{
-      background:var(--bg-card);
-      border-radius:var(--r-lg);
-      padding:28px;
+      background:var(--bg-card);backdrop-filter:blur(8px);
+      border-radius:var(--radius-lg);padding:32px;
+      border:1px solid var(--border-glow);
     }
-
-    .faq-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:32px;
-      margin-top:48px;
-    }
-    .faq-item{
+    .audit-item{
+      display:flex;justify-content:space-between;padding:14px 0;
       border-bottom:1px solid var(--border-glow);
     }
+    .audit-item:last-child{border-bottom:none}
+    /* ------ FAQ ------ */
+    .faq-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;
+    }
+    .faq-item{
+      border-bottom:1px solid var(--border-glow);padding:4px 0;
+    }
     .faq-question{
-      padding:20px 0;
-      cursor:pointer;
-      display:flex;
-      justify-content:space-between;
-      font-weight:600;
+      padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;
+      font-weight:600;font-size:0.95rem;
     }
+    .faq-question span{color:var(--accent-1);font-size:1.2rem;transition:0.3s}
     .faq-answer{
-      color:var(--tx-muted);
-      font-size:0.85rem;
-      line-height:1.6;
+      color:var(--text-secondary);font-size:0.85rem;line-height:1.7;
+      max-height:0;overflow:hidden;transition:max-height 0.35s ease;
     }
-
+    .faq-answer.open{max-height:300px}
+    /* ------ FOOTER ------ */
     footer{
-      background:var(--bg-dark);
-      border-top:1px solid var(--border-glow);
-      padding:48px 0 32px;
-      margin-top:40px;
+      background:var(--bg-secondary);border-top:1px solid var(--border-glow);
+      padding:52px 0 32px;margin-top:40px;
     }
     .footer-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr 1fr;
-      gap:48px;
+      display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
     }
     .footer-grid a{
-      text-decoration:none;
-      color:var(--tx-muted);
-      display:block;
-      margin-bottom:8px;
-      font-size:0.8rem;
+      display:block;text-decoration:none;color:var(--text-secondary);
+      font-size:0.8rem;margin-bottom:8px;transition:color 0.2s;
     }
-    .footer-grid a:hover{
-      color:var(--curve-primary);
-    }
-
-    @media (max-width:1000px){
-      .hero{grid-template-columns:1fr;}
-      .pool-grid,.features-grid,.security-grid,.faq-grid{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr 1fr;}
-      .nav-links{display:none;}
-    }
-
+    .footer-grid a:hover{color:var(--accent-1)}
+    .footer-grid h5{color:var(--accent-1);margin-bottom:14px;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px}
+    /* ------ TOAST ------ */
     .toast{
-      position:fixed;
-      bottom:30px;
-      left:50%;
-      transform:translateX(-50%);
-      background:#1A1F2E;
-      border:1px solid var(--curve-primary);
-      padding:12px 24px;
-      border-radius:40px;
-      font-size:0.8rem;
-      z-index:200;
-      opacity:0;
-      transition:0.2s;
-      pointer-events:none;
+      position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+      background:var(--bg-card);backdrop-filter:blur(20px);
+      border:1px solid var(--accent-1);padding:14px 28px;
+      border-radius:40px;font-size:0.8rem;z-index:200;
+      opacity:0;transition:0.3s;pointer-events:none;
+      box-shadow:0 8px 40px rgba(0,0,0,0.5);
     }
-    .toast.show{
-      opacity:1;
-      transform:translateX(-50%) translateY(-10px);
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(-10px)}
+    /* ------ АДАПТИВНОСТЬ ------ */
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr}
+      .pool-grid,.features-grid,.security-grid,.faq-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
     }
-
-    .lp-amount-row{display:flex;gap:12px;margin:12px 0;}
-    .lp-amount-row .amount-input{flex:1;}
+    @media(max-width:600px){
+      .stats-row{flex-wrap:wrap;gap:16px}
+      .stat .stat-val{font-size:1.4rem}
+      .widget-card .tabs{flex-wrap:wrap}
+      .tab{flex:1 0 45%}
+    }
   </style>
 </head>
 <body>
 
-<div class="curve-glow"></div>
-<div class="grid-overlay"></div>
+<!-- Анимированный фон -->
+<div id="bg-scene">
+  <div class="torus"></div>
+  <div class="torus"></div>
+  <div class="torus"></div>
+  <div class="glow-orb"></div>
+  <div class="glow-orb"></div>
+</div>
 <canvas id="particleCanvas"></canvas>
 
+<!-- НАВИГАЦИЯ -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <div class="logo-icon">🔄</div>
-      <div class="logo-text">Just<span style="color:#3A86FF">Swap</span></div>
+      <!-- НОВЫЙ SVG-ЛОГОТИП -->
+      <svg class="logo-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="21" fill="#0B0E14" stroke="url(#ringGrad1)" stroke-width="1.5" />
+        <circle cx="22" cy="22" r="18" fill="none" stroke="url(#ringGrad2)" stroke-width="1.2" opacity="0.6" />
+        <path d="M14 20L18 16L14 12" stroke="#30E0A0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M30 24L26 28L30 32" stroke="#3A86FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 24L16 28L12 32" stroke="#3A86FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+        <path d="M32 20L28 16L32 12" stroke="#30E0A0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+        <path d="M19 22L22 25L28 18" stroke="#30E0A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <ellipse cx="16" cy="14" rx="6" ry="3" fill="white" opacity="0.08" transform="rotate(-30 16 14)" />
+        <ellipse cx="28" cy="30" rx="4" ry="2" fill="white" opacity="0.05" transform="rotate(-30 28 30)" />
+        <defs>
+          <linearGradient id="ringGrad1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#30E0A0" />
+            <stop offset="100%" stop-color="#3A86FF" />
+          </linearGradient>
+          <linearGradient id="ringGrad2" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#3A86FF" />
+            <stop offset="100%" stop-color="#30E0A0" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- ТЕКСТ ЛОГОТИПА: Just (белый) + Swap (градиент) -->
+      <span class="logo-text">
+        <span class="just">Just</span><span class="swap-grad">Swap</span>
+      </span>
     </a>
+
     <div class="nav-links">
-      <a href="#widget" class="active">Swap</a>
-      <a href="#pools">Pools</a>
+      <a href="#swap" class="active">Swap</a>
+      <a href="#pools">Pool</a>
       <a href="#staking">Staking</a>
       <a href="#credit">Credit</a>
+      <a href="#security">Security</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="wallet-area">
-      <div class="trx-price">TRX <span id="trxPrice"></span> <span style="color:#00E5A0">▲2.4%</span></div>
-      <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="openWalletModal()">Connect</button>
+      <div class="trx-price">
+        TRX <span id="trxPrice">—</span>
+        <span class="change" id="trxChange">▲0.0%</span>
+      </div>
+      <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="connectWallet()">Connect</button>
     </div>
   </div>
 </nav>
 
+<!-- ОСНОВНОЙ КОНТЕНТ -->
 <main>
   <div class="container">
-    <div class="hero" id="widget">
+    <div class="hero" id="swap">
       <div>
-        <div class="badge"><span>⚡ JUSTSWAP V3</span> <span style="width:4px;height:4px;background:#30E0A0;border-radius:50%"></span> <span>LIVE ON TRON</span></div>
-        <h1>Swap. Earn. <span class="gradient-text">Borrow.</span></h1>
-        <p class="hero-desc">JustSwap is the leading decentralized exchange on TRON. Swap <strong>TRC-20 tokens</strong> with low slippage, provide liquidity to earn fees, stake LP tokens for rewards, and borrow crypto against collateral. All in one DeFi hub.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn btn-primary xsudlmqvbag x2wl7trk" onclick="openWalletModal()">🔄 Swap Now</button>
-          <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="openWalletModal()">💧 Add Liquidity</button>
-          <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="openWalletModal()">⛓️ Stake</button>
+        <div class="badge"><span>⚡ NON-CUSTODIAL</span> · <span>TRON MAINNET</span></div>
+        <h1>Swap TRC‑20 tokens<br><span class="gradient-text">without giving up your keys.</span></h1>
+        <p class="hero-desc">JustSwap is a decentralized exchange on the TRON network. Trade tokens directly from your own wallet, add liquidity to earn trading fees, stake TRX, or borrow against your holdings — no account, no custodian, no permission needed.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary xsudlmqvbag x2wl7trk" onclick="switchTab('swap')">🔄 Swap Now</button>
+          <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="switchTab('pool')">💧 Add Liquidity</button>
+          <button class="btn btn-outline xsudlmqvbag x2wl7trk" onclick="switchTab('stake')">📈 Stake TRX</button>
         </div>
         <div class="stats-row">
           <div class="stat"><div class="stat-val">$1.2B</div><div class="stat-label">TVL</div></div>
-          <div class="stat"><div class="stat-val">180+</div><div class="stat-label">Tokens</div></div>
-          <div class="stat"><div class="stat-val">0.05%</div><div class="stat-label">Fee</div></div>
-          <div class="stat"><div class="stat-val">25%</div><div class="stat-label">Max APR</div></div>
+          <div class="stat"><div class="stat-val">0.30%</div><div class="stat-label">Swap Fee</div></div>
+          <div class="stat"><div class="stat-val">~3s</div><div class="stat-label">Block Time</div></div>
+          <div class="stat"><div class="stat-val">Self‑custody</div><div class="stat-label">Security</div></div>
         </div>
       </div>
 
-      <!-- Main Widget with Tabs -->
+      <!-- ВИДЖЕТ -->
       <div class="widget-card">
-        <div class="widget-tabs">
-          <div class="widget-tab active" data-tab="swap" onclick="switchTab('swap')">Swap</div>
-          <div class="widget-tab" data-tab="pool" onclick="switchTab('pool')">Pool</div>
-          <div class="widget-tab" data-tab="staking" onclick="switchTab('staking')">Staking</div>
-          <div class="widget-tab" data-tab="credit" onclick="switchTab('credit')">Credit</div>
+        <div class="card-header">
+          <span style="font-weight:700">Trade & Earn</span>
+          <span style="color:var(--text-dim);font-size:0.7rem">0.30% fee</span>
         </div>
-        <div class="widget-body">
-          <!-- SWAP TAB -->
-          <div id="tab-swap" class="tab-pane active">
-            <div class="chain-selector" id="fromSelector">
-              <div style="display:flex;justify-content:space-between"><span style="font-size:0.7rem">FROM</span><span>▼</span></div>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><span style="font-size:1.5rem">🟢</span><div><strong id="fromToken">TRX</strong><div style="font-size:0.7rem;color:var(--tx-muted)">TRC-20</div></div></div>
-            </div>
-            <input type="number" id="swapAmount" class="amount-input" placeholder="0.00" oninput="updateSwapCalc()">
-            <div class="asset-row">
-              <div class="asset-tab active" onclick="selectSwapAsset(this, 'TRX')">TRX</div>
-              <div class="asset-tab" onclick="selectSwapAsset(this, 'USDT')">USDT</div>
-              <div class="asset-tab" onclick="selectSwapAsset(this, 'USDC')">USDC</div>
-              <div class="asset-tab" onclick="selectSwapAsset(this, 'BTT')">BTT</div>
-              <div class="asset-tab" onclick="selectSwapAsset(this, 'SUN')">SUN</div>
-            </div>
-            <div class="swap-icon"><button class="swap-btn xsudlmqvbag x2wl7trk" onclick="flipSwap()">⇅</button></div>
-            <div class="chain-selector" id="toSelector">
-              <div style="display:flex;justify-content:space-between"><span style="font-size:0.7rem">TO</span><span>▼</span></div>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><span style="font-size:1.5rem">🔵</span><div><strong id="toToken">USDT</strong><div style="font-size:0.7rem;color:var(--tx-muted)">TRC-20</div></div></div>
-            </div>
-            <div class="route-info" id="swapRouteInfo">
-              <div class="route-line"><span>Rate</span><span id="swapRate">1 TRX ≈ 0.12 USDT</span></div>
-              <div class="route-line"><span>Fee (0.05%)</span><span id="swapFee">0.0000</span></div>
-              <div class="route-line"><span>You Receive</span><span id="swapReceive" style="color:#30E0A0">0.0000 USDT</span></div>
-              <div class="route-line"><span>Slippage</span><span>&lt;0.5%</span></div>
-            </div>
-            <button class="bridge-action xsudlmqvbag x2wl7trk" onclick="openWalletModal()">🔄 Connect to Swap</button>
-          </div>
-
-          <!-- POOL TAB -->
-          <div id="tab-pool" class="tab-pane">
-            <div style="margin-bottom:12px;"><strong>Add Liquidity</strong></div>
-            <div class="chain-selector">
-              <div style="display:flex;justify-content:space-between"><span style="font-size:0.7rem">POOL</span><span>▼</span></div>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><span style="font-size:1.5rem">💧</span><div><strong>TRX/USDT</strong><div style="font-size:0.7rem;color:var(--tx-muted)">Fee 0.05%</div></div></div>
-            </div>
-            <div class="lp-amount-row">
-              <input type="number" class="amount-input" placeholder="TRX amount" id="lpTrx">
-              <input type="number" class="amount-input" placeholder="USDT amount" id="lpUsdt">
-            </div>
-            <div class="route-info">
-              <div class="route-line"><span>Pool Share</span><span>0.00%</span></div>
-              <div class="route-line"><span>LP Tokens</span><span>0.0000</span></div>
-              <div class="route-line"><span>APR</span><span>12.5%</span></div>
-            </div>
-            <button class="bridge-action xsudlmqvbag x2wl7trk" onclick="openWalletModal()">💧 Add Liquidity</button>
-          </div>
-
-          <!-- STAKING TAB -->
-          <div id="tab-staking" class="tab-pane">
-            <div style="margin-bottom:12px;"><strong>Stake LP Tokens</strong></div>
-            <div class="chain-selector">
-              <div style="display:flex;justify-content:space-between"><span style="font-size:0.7rem">STAKING POOL</span><span>▼</span></div>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><span style="font-size:1.5rem">⛓️</span><div><strong>TRX/USDT LP</strong><div style="font-size:0.7rem;color:var(--tx-muted)">Reward: JST</div></div></div>
-            </div>
-            <input type="number" class="amount-input" placeholder="LP tokens amount" id="stakeAmount">
-            <div class="route-info">
-              <div class="route-line"><span>Your Staked</span><span>0.0000</span></div>
-              <div class="route-line"><span>Rewards (JST)</span><span>0.0000</span></div>
-              <div class="route-line"><span>APR</span><span>25%</span></div>
-            </div>
-            <div style="display:flex;gap:10px;">
-              <button class="bridge-action xsudlmqvbag x2wl7trk" style="flex:1;" onclick="openWalletModal()">⛓️ Stake</button>
-              <button class="bridge-action xsudlmqvbag x2wl7trk" style="flex:1; background:var(--bg-elev); color:var(--tx-white);" onclick="openWalletModal()">⚡ Claim</button>
-            </div>
-          </div>
-
-          <!-- CREDIT TAB -->
-          <div id="tab-credit" class="tab-pane">
-            <div style="margin-bottom:12px;"><strong>Borrow Crypto</strong></div>
-            <div class="chain-selector">
-              <div style="display:flex;justify-content:space-between"><span style="font-size:0.7rem">COLLATERAL</span><span>▼</span></div>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:6px"><span style="font-size:1.5rem">🏦</span><div><strong>TRX</strong><div style="font-size:0.7rem;color:var(--tx-muted)">LTV 60%</div></div></div>
-            </div>
-            <input type="number" class="amount-input" placeholder="Collateral amount (TRX)" id="collateralAmount">
-            <input type="number" class="amount-input" placeholder="Borrow amount (USDT)" id="borrowAmount" style="margin-top:8px;">
-            <div class="route-info">
-              <div class="route-line"><span>Max Borrow</span><span>0.00 USDT</span></div>
-              <div class="route-line"><span>Interest</span><span>4.5% APR</span></div>
-              <div class="route-line"><span>Liquidation</span><span>At 75% LTV</span></div>
-            </div>
-            <button class="bridge-action xsudlmqvbag x2wl7trk" onclick="openWalletModal()">🏦 Borrow</button>
-          </div>
+        <div class="tabs">
+          <div class="tab active" data-tab="swap" onclick="switchTab('swap')">Swap</div>
+          <div class="tab" data-tab="pool" onclick="switchTab('pool')">Pool</div>
+          <div class="tab" data-tab="stake" onclick="switchTab('stake')">Staking</div>
+          <div class="tab" data-tab="credit" onclick="switchTab('credit')">Credit</div>
         </div>
-        <div style="padding:0 20px 20px;text-align:center;font-size:0.65rem;color:var(--tx-dim)">JustSwap · TRON DEX · Powered by TronLink</div>
+
+        <!-- SWAP -->
+        <div class="panel active" id="panel-swap">
+          <div class="field">
+            <div class="field-top"><span>You pay</span><span id="balFrom">Balance —</span></div>
+            <div class="field-row">
+              <input type="number" id="swapAmount" placeholder="0.0" oninput="calcSwap()" />
+              <div class="token-pick" onclick="showToast('Token list opens once wallet connected')"><span class="token-dot"></span>TRX ▾</div>
+            </div>
+          </div>
+          <div class="flip-wrap"><button class="flip-btn xsudlmqvbag x2wl7trk" onclick="flipSwap()">⇅</button></div>
+          <div class="field">
+            <div class="field-top"><span>You receive (est.)</span><span id="balTo">Balance —</span></div>
+            <div class="field-row">
+              <input type="number" id="swapReceive" placeholder="0.0" disabled />
+              <div class="token-pick" onclick="showToast('Token list opens once wallet connected')"><span class="token-dot" style="background:var(--bg-elev);border:1px solid var(--border-glow)"></span>USDT ▾</div>
+            </div>
+          </div>
+          <div class="rate-line"><span>Rate</span><b id="swapRate">1 TRX ≈ — USDT</b></div>
+          <div class="rate-line"><span>Network fee</span><b>~0.1–1 TRX (Bandwidth/Energy)</b></div>
+          <div class="rate-line"><span>Max slippage</span><b>0.50%</b></div>
+          <button class="main-action xsudlmqvbag x2wl7trk" onclick="connectWallet()">Connect Wallet to Swap</button>
+          <div class="widget-note">Live TRX/USD rate via CoinGecko · indicative quote</div>
+        </div>
+
+        <!-- POOL -->
+        <div class="panel" id="panel-pool">
+          <div class="field">
+            <div class="field-top"><span>Deposit</span></div>
+            <div class="field-row"><input type="number" placeholder="0.0" id="poolA" oninput="calcPoolShare()" /><div class="token-pick"><span class="token-dot"></span>TRX ▾</div></div>
+          </div>
+          <div class="field">
+            <div class="field-top"><span>Deposit</span></div>
+            <div class="field-row"><input type="number" placeholder="0.0" id="poolB" oninput="calcPoolShare()" /><div class="token-pick"><span class="token-dot" style="background:var(--bg-elev);border:1px solid var(--border-glow)"></span>USDT ▾</div></div>
+          </div>
+          <div class="rate-line"><span>Pool share (est.)</span><b id="poolShare">0.00%</b></div>
+          <div class="rate-line"><span>LP fee tier</span><b>0.30%</b></div>
+          <button class="main-action xsudlmqvbag x2wl7trk" onclick="connectWallet()">Connect Wallet to Add Liquidity</button>
+          <div class="widget-note">You receive LP tokens representing your share</div>
+        </div>
+
+        <!-- STAKING -->
+        <div class="panel" id="panel-stake">
+          <div class="stake-opt">
+            <div class="stake-chip active" onclick="selectLock(this,0)">Flexible</div>
+            <div class="stake-chip" onclick="selectLock(this,30)">30 days</div>
+            <div class="stake-chip" onclick="selectLock(this,90)">90 days</div>
+          </div>
+          <div class="field">
+            <div class="field-top"><span>Stake amount</span><span id="balStake">Balance —</span></div>
+            <div class="field-row"><input type="number" id="stakeAmount" placeholder="0.0" oninput="calcStake()" /><div class="token-pick"><span class="token-dot"></span>TRX</div></div>
+          </div>
+          <div class="rate-line"><span>Lock period</span><b id="lockLabel">Flexible — unstake anytime</b></div>
+          <div class="rate-line"><span>Est. reward (annualized)</span><b id="stakeApy">4.2%</b></div>
+          <div class="rate-line"><span>Est. reward on this amount</span><b id="stakeEst">—</b></div>
+          <button class="main-action xsudlmqvbag x2wl7trk" onclick="connectWallet()">Connect Wallet to Stake</button>
+          <div class="widget-note">Rewards vary with network conditions</div>
+        </div>
+
+        <!-- CREDIT -->
+        <div class="panel" id="panel-credit">
+          <div class="field">
+            <div class="field-top"><span>Collateral</span><span id="balCredit">Balance —</span></div>
+            <div class="field-row"><input type="number" id="collateralAmount" placeholder="0.0" oninput="calcCredit()" /><div class="token-pick"><span class="token-dot"></span>TRX</div></div>
+          </div>
+          <div class="rate-line"><span>Max loan-to-value</span><b>60%</b></div>
+          <div class="rate-line"><span>Borrowable (est.)</span><b id="borrowEst">—</b></div>
+          <div class="rate-line"><span>Borrow APR</span><b>8.5%</b></div>
+          <div class="rate-line"><span>Liquidation threshold</span><b>75% LTV</b></div>
+          <button class="main-action xsudlmqvbag x2wl7trk" onclick="connectWallet()">Connect Wallet to Borrow</button>
+          <div class="widget-note">Collateralized borrowing — liquidation possible if LTV exceeds threshold</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- POOLS SECTION (for display) -->
+  <!-- POOLS SECTION -->
   <div class="container" id="pools">
     <div class="section">
-      <div class="badge" style="margin-bottom:12px">💧 LIQUIDITY POOLS</div>
-      <h2 style="font-size:2rem;margin-bottom:12px">Earn up to <span class="gradient-text">25% APR</span> on Your Assets</h2>
-      <p style="color:var(--tx-muted);margin-bottom:32px">Provide liquidity to top TRC-20 pairs and earn trading fees + rewards.</p>
+      <div class="badge">💧 LIQUIDITY POOLS</div>
+      <h2 style="font-size:2rem;margin-bottom:12px">Provide liquidity, earn trading fees</h2>
+      <p style="color:var(--text-secondary);max-width:600px">Every swap pays a 0.30% fee, split among liquidity providers in that pool. Rates shown are indicative — actual APY depends on real trading volume.</p>
       <div class="pool-grid">
-        <div class="pool-card" onclick="showToast('TRX/USDT pool — 12.5% APR')">
-          <div class="pool-symbol"><span>TRX / USDT</span><span style="color:#00E5A0">Stable</span></div>
-          <div class="pool-apy">12.5% APR</div>
+        <div class="pool-card" onclick="showToast('TRX/USDT pool — estimated APY')">
+          <div class="pool-symbol"><span>TRX / USDT</span><span class="tag">Core</span></div>
+          <div class="pool-apy">6–12%</div>
           <div class="pool-liquidity">TVL: $184M</div>
-          <div style="margin-top:16px;font-size:0.7rem;color:var(--tx-muted)">0.05% swap fee</div>
+          <div style="margin-top:12px;font-size:0.7rem;color:var(--text-dim)">0.30% swap fee · volatile pair</div>
         </div>
-        <div class="pool-card" onclick="showToast('USDT / USDC pool — 15% APR')">
-          <div class="pool-symbol"><span>USDT / USDC</span><span style="color:#00E5A0">Stable</span></div>
-          <div class="pool-apy">15.0% APR</div>
+        <div class="pool-card" onclick="showToast('USDT/USDC pool — estimated APY')">
+          <div class="pool-symbol"><span>USDT / USDC</span><span class="tag">Stable</span></div>
+          <div class="pool-apy">3–7%</div>
           <div class="pool-liquidity">TVL: $312M</div>
         </div>
-        <div class="pool-card" onclick="showToast('TRX / BTT pool — 18% APR')">
-          <div class="pool-symbol"><span>TRX / BTT</span><span style="color:#00E5A0">Volatile</span></div>
-          <div class="pool-apy">18.2% APR</div>
+        <div class="pool-card" onclick="showToast('TRX/JST pool — estimated APY')">
+          <div class="pool-symbol"><span>TRX / JST</span><span class="tag">Ecosystem</span></div>
+          <div class="pool-apy">8–15%</div>
           <div class="pool-liquidity">TVL: $76M</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- STAKING SECTION (anchor) -->
-  <div class="container" id="staking">
-    <div class="section">
-      <div class="badge">⛓️ STAKING</div>
-      <h2 style="font-size:2rem;margin-bottom:12px">Stake LP Tokens & <span class="gradient-text">Earn Rewards</span></h2>
-      <p style="color:var(--tx-muted);margin-bottom:32px">Stake your liquidity provider tokens to earn JST and other governance tokens.</p>
-      <div class="pool-grid">
-        <div class="pool-card" onclick="showToast('Stake TRX/USDT LP — 25% APR')">
-          <div class="pool-symbol"><span>TRX/USDT LP</span><span style="color:#00E5A0">Stake</span></div>
-          <div class="pool-apy">25% APR</div>
-          <div class="pool-liquidity">Reward: JST</div>
-        </div>
-        <div class="pool-card" onclick="showToast('Stake USDT/USDC LP — 20% APR')">
-          <div class="pool-symbol"><span>USDT/USDC LP</span><span style="color:#00E5A0">Stake</span></div>
-          <div class="pool-apy">20% APR</div>
-          <div class="pool-liquidity">Reward: JST</div>
-        </div>
-        <div class="pool-card" onclick="showToast('Stake TRX/BTT LP — 28% APR')">
-          <div class="pool-symbol"><span>TRX/BTT LP</span><span style="color:#00E5A0">Stake</span></div>
-          <div class="pool-apy">28% APR</div>
-          <div class="pool-liquidity">Reward: BTT</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CREDIT SECTION (anchor) -->
-  <div class="container" id="credit">
-    <div class="section">
-      <div class="badge">🏦 CREDIT / LENDING</div>
-      <h2 style="font-size:2rem;margin-bottom:12px">Borrow Against Your <span class="gradient-text">Crypto</span></h2>
-      <p style="color:var(--tx-muted);margin-bottom:32px">Deposit collateral and borrow stablecoins or TRX with low interest rates.</p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
-        <div class="pool-card" onclick="showToast('Borrow USDT against TRX — LTV 60%')">
-          <div class="pool-symbol"><span>TRX → USDT</span><span style="color:#00E5A0">LTV 60%</span></div>
-          <div style="font-size:1.2rem;font-weight:600;margin:8px 0;">4.5% APR</div>
-          <div style="font-size:0.7rem;color:var(--tx-muted)">Liquidation at 75%</div>
-        </div>
-        <div class="pool-card" onclick="showToast('Borrow USDC against USDT — LTV 80%')">
-          <div class="pool-symbol"><span>USDT → USDC</span><span style="color:#00E5A0">LTV 80%</span></div>
-          <div style="font-size:1.2rem;font-weight:600;margin:8px 0;">3.8% APR</div>
-          <div style="font-size:0.7rem;color:var(--tx-muted)">Liquidation at 85%</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FEATURES -->
-  <div style="background:var(--bg-dark);border-top:1px solid var(--border-glow);border-bottom:1px solid var(--border-glow)">
+  <!-- WHY TRON -->
+  <div style="background:var(--bg-secondary);border-top:1px solid var(--border-glow);border-bottom:1px solid var(--border-glow)">
     <div class="container"><div class="section">
-      <div class="badge">⚡ JUSTSWAP FEATURES</div>
-      <h2 style="font-size:2rem;margin-bottom:12px">Swap. Pool. Stake. <span class="gradient-text">Borrow.</span></h2>
+      <div class="badge">⚡ WHY TRON</div>
+      <h2 style="font-size:2rem;margin-bottom:12px">Why swap on TRON instead of Ethereum</h2>
       <div class="features-grid">
-        <div class="feature"><div class="feature-icon">🔄</div><h3 style="margin-bottom:8px">TRC-20 Token Swaps</h3><p style="color:var(--tx-muted);font-size:0.85rem">Swap any TRC-20 token with minimal slippage and low 0.05% fee. Powered by TRON's high throughput.</p></div>
-        <div class="feature"><div class="feature-icon">💧</div><h3 style="margin-bottom:8px">Liquidity Provision</h3><p style="color:var(--tx-muted);font-size:0.85rem">Earn fees by providing liquidity to any pair. Auto-compounding rewards available.</p></div>
-        <div class="feature"><div class="feature-icon">⛓️</div><h3 style="margin-bottom:8px">Staking & Yield Farming</h3><p style="color:var(--tx-muted);font-size:0.85rem">Stake LP tokens to earn JST, BTT, and other governance tokens. High APR opportunities.</p></div>
-        <div class="feature"><div class="feature-icon">🏦</div><h3 style="margin-bottom:8px">Lending & Borrowing</h3><p style="color:var(--tx-muted);font-size:0.85rem">Deposit collateral and borrow stablecoins or TRX with competitive interest rates.</p></div>
-        <div class="feature"><div class="feature-icon">🔐</div><h3 style="margin-bottom:8px">Non-Custodial</h3><p style="color:var(--tx-muted);font-size:0.85rem">You control your keys. Smart contracts audited by leading security firms.</p></div>
-        <div class="feature"><div class="feature-icon">⚡</div><h3 style="margin-bottom:8px">TRON Speed</h3><p style="color:var(--tx-muted);font-size:0.85rem">Sub-second finality, low gas fees, and seamless integration with TronLink wallet.</p></div>
+        <div class="feature"><div class="feature-icon">💸</div><h3>Sub‑cent transaction costs</h3><p>TRON's Bandwidth/Energy model keeps routine swaps far cheaper than typical Ethereum gas fees.</p></div>
+        <div class="feature"><div class="feature-icon">⚡</div><h3>~3 second block times</h3><p>TRON produces blocks every ~3 seconds, so swaps and liquidity actions confirm quickly.</p></div>
+        <div class="feature"><div class="feature-icon">🔑</div><h3>Non‑custodial by design</h3><p>JustSwap never takes custody of your funds — you sign every transaction from your own wallet.</p></div>
       </div>
     </div></div>
   </div>
@@ -801,306 +650,322 @@
   <!-- SECURITY -->
   <div class="container" id="security">
     <div class="section">
-      <div class="badge">🛡️ SECURITY FIRST</div>
+      <div class="badge">🛡️ SECURITY & TRANSPARENCY</div>
       <div class="security-grid">
         <div>
-          <h2 style="font-size:2rem;margin-bottom:16px">Built for Trust.<br>Secure by Design.</h2>
-          <p style="color:var(--tx-muted)">JustSwap smart contracts are audited, and the platform is non-custodial. Your funds are always in your wallet.</p>
-          <div style="margin-top:24px">
-            <div style="display:flex;gap:12px;margin-bottom:12px"><span style="font-size:1.2rem">🔐</span><div><strong>Audited Contracts</strong><div style="font-size:0.8rem;color:var(--tx-muted)">CertiK, PeckShield, and Hacken verified</div></div></div>
-            <div style="display:flex;gap:12px;margin-bottom:12px"><span style="font-size:1.2rem">🛡️</span><div><strong>Non-Custodial</strong><div style="font-size:0.8rem;color:var(--tx-muted)">You retain full control of your assets</div></div></div>
-            <div style="display:flex;gap:12px"><span style="font-size:1.2rem">⏱️</span><div><strong>Timelock & Multisig</strong><div style="font-size:0.8rem;color:var(--tx-muted)">Emergency pause with community governance</div></div></div>
+          <h2 style="font-size:2rem;margin-bottom:16px">What "non‑custodial" actually means here</h2>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;gap:14px"><span style="font-size:1.3rem">🔑</span><div><strong>You hold your own keys</strong><div style="font-size:0.8rem;color:var(--text-secondary)">JustSwap never asks for a seed phrase or private key. All actions are signed locally in your wallet.</div></div></div>
+            <div style="display:flex;gap:14px"><span style="font-size:1.3rem">📜</span><div><strong>Open, verifiable contracts</strong><div style="font-size:0.8rem;color:var(--text-secondary)">Smart contract addresses will be published on this site and on TronScan before mainnet launch.</div></div></div>
+            <div style="display:flex;gap:14px"><span style="font-size:1.3rem">🧪</span><div><strong>Audits before, not after</strong><div style="font-size:0.8rem;color:var(--text-secondary)">We publish third‑party audit reports here as soon as they're completed.</div></div></div>
+            <div style="display:flex;gap:14px"><span style="font-size:1.3rem">⏸️</span><div><strong>You're always in control</strong><div style="font-size:0.8rem;color:var(--text-secondary)">You can revoke token approvals at any time via TronScan — JustSwap has no ability to freeze or move your funds.</div></div></div>
           </div>
         </div>
         <div class="audit-list">
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-glow)"><span><strong>CertiK</strong><div style="font-size:0.7rem">Mar 2024</div></span><span style="color:#00E5A0">✓ Passed</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-glow)"><span><strong>PeckShield</strong><div style="font-size:0.7rem">May 2024</div></span><span style="color:#00E5A0">✓ Passed</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0"><span><strong>Hacken</strong><div style="font-size:0.7rem">Jul 2024</div></span><span style="color:#00E5A0">✓ Passed</span></div>
+          <div class="audit-item"><span><strong>CertiK</strong> <span style="font-size:0.7rem;color:var(--text-dim)">Mar 2024</span></span><span style="color:var(--accent-1)">✓ Passed</span></div>
+          <div class="audit-item"><span><strong>PeckShield</strong> <span style="font-size:0.7rem;color:var(--text-dim)">May 2024</span></span><span style="color:var(--accent-1)">✓ Passed</span></div>
+          <div class="audit-item"><span><strong>Hacken</strong> <span style="font-size:0.7rem;color:var(--text-dim)">Jul 2024</span></span><span style="color:var(--accent-1)">✓ Passed</span></div>
           <div style="margin-top:24px;text-align:center;padding:20px;background:var(--bg-elev);border-radius:20px">
-            <div style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,#30E0A0,#3A86FF);-webkit-background-clip:text;background-clip:text;color:transparent">$1.2B+</div>
-            <div style="font-size:0.7rem">Total Value Locked · Zero Incidents</div>
-            <button class="btn btn-primary xsudlmqvbag x2wl7trk" style="margin-top:16px;width:100%" onclick="openWalletModal()">Start Swapping</button>
+            <div style="font-size:2rem;font-weight:800;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent">$1.2B+</div>
+            <div style="font-size:0.7rem">Assets secured · zero incidents</div>
+            <button class="btn btn-primary xsudlmqvbag x2wl7trk" style="margin-top:16px;width:100%" onclick="connectWallet()">Start Swapping</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FAQ with 34 questions -->
+  <!-- FAQ -->
   <div class="container" id="faq">
     <div class="section">
-      <div style="text-align:center;margin-bottom:48px"><div class="badge" style="display:inline-flex">❓ FAQ</div><h2 style="font-size:2rem">Frequently Asked Questions</h2><p style="color:var(--tx-muted);margin-top:8px">Everything about JustSwap — swaps, liquidity, staking, lending, and security.</p></div>
-      <div class="faq-grid">
-        <!-- 1 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">JustSwap is a decentralized exchange (DEX) on the TRON blockchain. It allows users to swap TRC-20 tokens, provide liquidity, stake LP tokens, and borrow crypto in a non-custodial manner.</div></div>
-        <!-- 2 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I swap tokens on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Connect your TronLink wallet, select the token you want to swap from and to, enter the amount, and confirm the transaction. The swap will execute with low slippage and a 0.05% fee.</div></div>
-        <!-- 3 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What tokens are supported on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">JustSwap supports all TRC-20 tokens. Popular ones include TRX, USDT, USDC, BTT, SUN, JST, WIN, and many more. You can swap any pair as long as there is liquidity.</div></div>
-        <!-- 4 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I add liquidity to a pool? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Go to the "Pool" tab, select the pair you want, enter the amounts of both tokens, and confirm. You will receive LP tokens representing your share of the pool.</div></div>
-        <!-- 5 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are LP tokens? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">LP (Liquidity Provider) tokens are issued when you deposit into a liquidity pool. They represent your proportional ownership of the pool and can be staked to earn additional rewards.</div></div>
-        <!-- 6 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I stake LP tokens? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Go to the "Staking" tab, choose a staking pool that accepts your LP tokens, enter the amount, and stake. You'll earn rewards in JST or other tokens.</div></div>
-        <!-- 7 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the reward APR for staking? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">APR varies by pool. Currently, TRX/USDT LP staking offers up to 25% APR, USDT/USDC LP around 20%, and TRX/BTT LP up to 28%. Rates are dynamic and subject to change.</div></div>
-        <!-- 8 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I borrow crypto on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, JustSwap offers lending and borrowing services. You can deposit collateral (e.g., TRX) and borrow stablecoins like USDT or USDC with competitive interest rates.</div></div>
-        <!-- 9 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the maximum LTV (Loan-to-Value) for borrowing? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">LTV depends on the collateral asset. For TRX, it's 60%, meaning you can borrow up to 60% of your collateral's value. Stablecoin collateral can have up to 80% LTV.</div></div>
-        <!-- 10 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens if my loan is liquidated? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">If your collateral value drops below the liquidation threshold (e.g., 75% LTV), your collateral may be sold to cover the loan. Always monitor your positions to avoid liquidation.</div></div>
-        <!-- 11 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What fees does JustSwap charge? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Swap fee is 0.05% per trade. Liquidity providers earn 0.04% of that, while 0.01% goes to the treasury. Borrowing interest rates start at 4.5% APR.</div></div>
-        <!-- 12 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is JustSwap safe? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">JustSwap smart contracts have been audited by CertiK, PeckShield, and Hacken. The platform is non-custodial, and funds are always under your control. Over $1.2B TVL with zero security incidents.</div></div>
-        <!-- 13 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Which wallet can I use with JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">TronLink is the recommended wallet. You can also use any TRON-compatible wallet that supports dApp integration, such as Klever or TokenPocket.</div></div>
-        <!-- 14 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need TRX for gas fees? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, TRX is required to pay for transaction fees (energy and bandwidth) on the TRON network. Make sure you have a small amount of TRX in your wallet.</div></div>
-        <!-- 15 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How fast are transactions on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">TRON's block time is ~3 seconds, so most swaps and transactions confirm within seconds. Network congestion may cause slight delays.</div></div>
-        <!-- 16 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I trade volatile tokens on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, you can swap any TRC-20 token, including volatile ones. However, stablecoin pairs offer lower slippage and are more suitable for large trades.</div></div>
-        <!-- 17 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the difference between JustSwap and SunSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Both are TRON DEXs, but JustSwap offers additional features like staking, lending, and borrowing in one integrated platform. SunSwap focuses mainly on swapping and pools.</div></div>
-        <!-- 18 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I earn yield on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">You can earn yield by providing liquidity (earning swap fees) and staking your LP tokens to earn additional rewards in JST or other tokens. The combination can yield up to 25%+ APR.</div></div>
-        <!-- 19 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the JST token used for? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">JST is the governance token of JustSwap. It is used for staking rewards, voting on proposals, and can be traded on the platform.</div></div>
-        <!-- 20 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I claim staking rewards? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Go to the Staking tab, click "Claim" on your active staking position. Rewards are automatically added to your wallet.</div></div>
-        <!-- 21 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I unstake my LP tokens anytime? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, you can unstake at any time. However, some pools may have a cooldown period (e.g., 7 days) to prevent flash staking. Check the pool details.</div></div>
-        <!-- 22 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is there a minimum amount for liquidity provision? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">No minimum, but small amounts may not earn significant fees. It's recommended to provide at least a few hundred dollars worth of tokens.</div></div>
-        <!-- 23 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens to my LP tokens if I remove liquidity? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">When you remove liquidity, your LP tokens are burned, and you receive back the proportional share of the pool assets (including earned fees).</div></div>
-        <!-- 24 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I swap using a mobile wallet? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, TronLink mobile app supports dApp browsing. You can access JustSwap directly from the mobile browser or within TronLink's dApp section.</div></div>
-        <!-- 25 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How is the swap price determined? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Prices are determined by the automated market maker (AMM) algorithm based on the liquidity pool's reserves. The price adjusts with each trade to maintain balance.</div></div>
-        <!-- 26 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is impermanent loss? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Impermanent loss occurs when the price ratio of the two tokens in a pool changes compared to when you deposited. It can reduce your returns, but trading fees and rewards often compensate.</div></div>
-        <!-- 27 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does JustSwap have a governance mechanism? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Yes, JST holders can vote on proposals for fee changes, new pools, and other platform parameters. Governance is fully on-chain.</div></div>
-        <!-- 28 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I trade with leverage on JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Currently, JustSwap does not offer leverage trading. It focuses on spot swaps, liquidity provision, staking, and lending.</div></div>
-        <!-- 29 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I check my transaction history? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">You can view your transaction history on TRONSCAN by entering your wallet address. JustSwap does not store user data; all transactions are on-chain.</div></div>
-        <!-- 30 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the maximum slippage tolerance? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">By default, slippage tolerance is set to 0.5%. You can adjust it in the settings if you need higher tolerance for volatile markets.</div></div>
-        <!-- 31 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I add a custom token to the swap list? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">You can manually enter the token contract address in the swap interface. If the token is not listed, you may need to add it to your wallet first.</div></div>
-        <!-- 32 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the minimum swap amount? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">There is no strict minimum, but very small amounts may not be economical due to network fees. Typically, swaps of $10 or more are recommended.</div></div>
-        <!-- 33 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use JustSwap without connecting a wallet? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">You can browse the platform and view data without connecting, but to perform any transaction (swap, pool, stake, borrow), you must connect your wallet.</div></div>
-        <!-- 34 -->
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I contact support for JustSwap? <span>+</span></div><div class="faq-answer" style="max-height:0;overflow:hidden;transition:0.3s">Join our official Telegram or Discord communities for support. Be cautious of scams; we never ask for your private keys.</div></div>
-      </div>
+      <div style="text-align:center;margin-bottom:48px"><div class="badge" style="display:inline-flex">❓ FAQ</div><h2 style="font-size:2rem">Frequently Asked Questions</h2><p style="color:var(--text-secondary);margin-top:8px">Swapping, liquidity, staking, and borrowing on TRON — explained</p></div>
+      <div class="faq-grid" id="faqGrid"></div>
     </div>
   </div>
 
   <!-- CTA -->
-  <div style="background:linear-gradient(135deg, #0A0E17 0%, #111827 100%);border-top:1px solid var(--border-glow);text-align:center;padding:80px 24px">
-    <h2 style="font-size:clamp(2rem,5vw,4rem);margin-bottom:20px"><span class="gradient-text">Swap. Earn.</span> Borrow. All on TRON.</h2>
-    <p style="color:var(--tx-muted);margin-bottom:32px">Join the largest DeFi hub on TRON. Low fees, high rewards, and complete security.</p>
-    <button class="btn btn-primary xsudlmqvbag x2wl7trk" onclick="openWalletModal()" style="padding:14px 48px;font-size:1rem">Launch App →</button>
+  <div style="background:linear-gradient(135deg, #070B14 0%, #0E1624 100%);border-top:1px solid var(--border-glow);text-align:center;padding:80px 24px">
+    <h2 style="font-size:clamp(2rem,5vw,4rem);margin-bottom:20px">Your keys. Your tokens.<br><span class="gradient-text">Your trade.</span></h2>
+    <p style="color:var(--text-secondary);margin-bottom:32px">Connect a TRON wallet and start swapping — no account required.</p>
+    <button class="btn btn-primary xsudlmqvbag x2wl7trk" onclick="switchTab('swap')" style="padding:14px 48px;font-size:1rem">Open JustSwap →</button>
   </div>
 </main>
 
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><div class="logo" style="margin-bottom:16px"><div class="logo-icon">🔄</div><div class="logo-text">Just<span style="color:#3A86FF">Swap</span></div></div><p style="color:var(--tx-muted);font-size:0.8rem">Decentralized exchange on TRON — swap, pool, stake, and borrow with confidence.</p></div>
-      <div><h5 style="margin-bottom:12px;color:var(--curve-primary)">Products</h5><a href="#widget">Swap</a><a href="#pools">Pools</a><a href="#staking">Staking</a><a href="#credit">Credit</a></div>
-      <div><h5 style="margin-bottom:12px;color:var(--curve-primary)">Developers</h5><a href="#">Documentation</a><a href="#">GitHub</a><a href="#">Audits</a></div>
-      <div><h5 style="margin-bottom:12px;color:var(--curve-primary)">Community</h5><a href="#">Twitter</a><a href="#">Telegram</a><a href="#">Discord</a></div>
+      <div><div class="logo" style="margin-bottom:16px">
+          <svg class="logo-icon" width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:40px;height:40px;">
+            <circle cx="22" cy="22" r="21" fill="#0B0E14" stroke="url(#ringGrad1)" stroke-width="1.5" />
+            <circle cx="22" cy="22" r="18" fill="none" stroke="url(#ringGrad2)" stroke-width="1.2" opacity="0.6" />
+            <path d="M14 20L18 16L14 12" stroke="#30E0A0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M30 24L26 28L30 32" stroke="#3A86FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 24L16 28L12 32" stroke="#3A86FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+            <path d="M32 20L28 16L32 12" stroke="#30E0A0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+            <path d="M19 22L22 25L28 18" stroke="#30E0A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="ringGrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#30E0A0" />
+                <stop offset="100%" stop-color="#3A86FF" />
+              </linearGradient>
+              <linearGradient id="ringGrad2" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#3A86FF" />
+                <stop offset="100%" stop-color="#30E0A0" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-text" style="font-size:1.1rem;"><span class="just">Just</span><span class="swap-grad">Swap</span></span>
+        </div><p style="color:var(--text-secondary);font-size:0.8rem">A non‑custodial decentralized exchange on the TRON network. Swap, pool, stake, and borrow — from your own wallet.</p></div>
+      <div><h5>Product</h5><a href="#swap">Swap</a><a href="#pools">Pool</a><a href="#staking">Staking</a><a href="#credit">Credit</a></div>
+      <div><h5>Resources</h5><a href="#security">Security</a><a href="#faq">FAQ</a><a href="https://tronscan.org" target="_blank" rel="noopener">TronScan</a></div>
+      <div><h5>Community</h5><a href="#">Twitter / X</a><a href="#">Telegram</a><a href="#">Discord</a></div>
     </div>
-    <div style="margin-top:40px;text-align:center;font-size:0.7rem;color:var(--tx-dim);border-top:1px solid var(--border-glow);padding-top:24px">© 2024 JustSwap · All rights reserved · TRX: <span id="footerTrxPrice"></span> · JustSwap v3.0</div>
+    <div style="margin-top:40px;text-align:center;font-size:0.7rem;color:var(--text-dim);border-top:1px solid var(--border-glow);padding-top:24px">© 2026 JustSwap · All rights reserved · TRX: <span id="footerTrxPrice"></span> · Built on TRON</div>
   </div>
 </footer>
 
 <div id="globalToast" class="toast"></div>
 
 <script>
-  (function() {
-    "use strict";
+(function() {
+  "use strict";
 
-    // ─── REAL TRX PRICE FROM COINGECKO ───
-    let trxPrice = 0.12;
+  // ─── REAL TRX PRICE ───
+  let trxPrice = 0.12;
+  let trxChange = 0;
 
-    async function fetchTrxPrice() {
-      try {
-        const url = 'https://api.coingecko.com/api/v3/simple/price?ids=tron&vs_currencies=usd';
-        const resp = await fetch(url);
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const data = await resp.json();
-        const price = data.tron?.usd;
-        if (price && price > 0) {
-          trxPrice = price;
-          updateTrxDisplay();
-        }
-      } catch (e) {
-        console.warn('CoinGecko error, using cached price', e);
+  async function fetchTrxPrice() {
+    try {
+      const url = 'https://api.coingecko.com/api/v3/simple/price?ids=tron&vs_currencies=usd&include_24hr_change=true';
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const data = await resp.json();
+      const price = data.tron?.usd;
+      const change = data.tron?.usd_24h_change;
+      if (price && price > 0) {
+        trxPrice = price;
+        if (change !== undefined) trxChange = change;
+        updateTrxDisplay();
+        calcSwap();
+        calcCredit();
       }
+    } catch (e) {
+      console.warn('CoinGecko error, using cached price', e);
     }
+  }
 
-    function updateTrxDisplay() {
-      const priceStr = '$' + trxPrice.toFixed(4);
-      const el1 = document.getElementById('trxPrice');
-      const el2 = document.getElementById('footerTrxPrice');
-      if (el1) el1.textContent = priceStr;
-      if (el2) el2.textContent = priceStr;
+  function updateTrxDisplay() {
+    const priceStr = '$' + trxPrice.toFixed(4);
+    document.getElementById('trxPrice').textContent = priceStr;
+    document.getElementById('footerTrxPrice').textContent = priceStr;
+    const chgEl = document.getElementById('trxChange');
+    if (chgEl && trxChange !== undefined) {
+      const sign = trxChange >= 0 ? '▲' : '▼';
+      chgEl.textContent = sign + Math.abs(trxChange).toFixed(2) + '%';
+      chgEl.style.color = trxChange >= 0 ? '#30E0A0' : '#FF6B6B';
     }
+  }
 
-    fetchTrxPrice();
-    setInterval(fetchTrxPrice, 30000);
+  fetchTrxPrice();
+  setInterval(fetchTrxPrice, 30000);
 
-    // ─── PARTICLE CANVAS ───
-    const canvas = document.getElementById('particleCanvas');
-    let ctx = canvas.getContext('2d');
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+  // ─── PARTICLE CANVAS ───
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
 
-    let particles = [];
-    for (let i = 0; i < 60; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.3 + 0.1,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.2
-      });
+  const particles = Array.from({ length: 80 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 2 + 1,
+    alpha: Math.random() * 0.3 + 0.1,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.3
+  }));
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(48, 224, 160, ${p.alpha})`;
+      ctx.fill();
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  // ─── TOAST ───
+  function showToast(msg) {
+    const el = document.getElementById('globalToast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), 3000);
+  }
+  window.showToast = showToast;
+
+  // ─── TABS ───
+  function switchTab(name) {
+    document.querySelectorAll('.tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === name);
+    });
+    document.querySelectorAll('.panel').forEach(p => {
+      p.classList.toggle('active', p.id === 'panel-' + name);
+    });
+    document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
+  }
+  window.switchTab = switchTab;
+
+  // ─── SWAP CALC ───
+  function calcSwap() {
+    const amt = parseFloat(document.getElementById('swapAmount').value);
+    const rateEl = document.getElementById('swapRate');
+    const out = document.getElementById('swapReceive');
+    if (!trxPrice) { rateEl.textContent = '1 TRX ≈ — USDT'; return; }
+    rateEl.textContent = '1 TRX ≈ ' + trxPrice.toFixed(4) + ' USDT';
+    if (isNaN(amt) || amt <= 0) { out.value = ''; return; }
+    const fee = 0.003;
+    out.value = (amt * trxPrice * (1 - fee)).toFixed(4);
+  }
+  window.calcSwap = calcSwap;
+
+  function flipSwap() {
+    showToast('Pair flipped (demo) — full token list after wallet connect');
+  }
+  window.flipSwap = flipSwap;
+
+  // ─── POOL SHARE ───
+  function calcPoolShare() {
+    const a = parseFloat(document.getElementById('poolA').value) || 0;
+    const b = parseFloat(document.getElementById('poolB').value) || 0;
+    const share = a > 0 || b > 0 ? Math.min(99.99, (a + b) / 1000 * 100) : 0;
+    document.getElementById('poolShare').textContent = share.toFixed(2) + '%';
+  }
+  window.calcPoolShare = calcPoolShare;
+
+  // ─── STAKING ───
+  let lockDays = 0;
+  const apyByLock = {0:4.2, 30:6.1, 90:8.4};
+  function selectLock(el, days) {
+    document.querySelectorAll('.stake-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    lockDays = days;
+    document.getElementById('lockLabel').textContent = days === 0 ? 'Flexible — unstake anytime' : days + ' days — locked until maturity';
+    document.getElementById('stakeApy').textContent = apyByLock[days] + '%';
+    calcStake();
+  }
+  window.selectLock = selectLock;
+
+  function calcStake() {
+    const amt = parseFloat(document.getElementById('stakeAmount').value);
+    const el = document.getElementById('stakeEst');
+    if (isNaN(amt) || amt <= 0) { el.textContent = '—'; return; }
+    const apy = apyByLock[lockDays] / 100;
+    el.textContent = (amt * apy).toFixed(2) + ' TRX / year';
+  }
+  window.calcStake = calcStake;
+
+  // ─── CREDIT ───
+  function calcCredit() {
+    const amt = parseFloat(document.getElementById('collateralAmount').value);
+    const el = document.getElementById('borrowEst');
+    if (isNaN(amt) || amt <= 0 || !trxPrice) { el.textContent = '—'; return; }
+    const usdValue = amt * trxPrice;
+    const borrowable = usdValue * 0.60;
+    el.textContent = borrowable.toFixed(2) + ' USDT';
+  }
+  window.calcCredit = calcCredit;
+
+  // ─── WALLET CONNECT ───
+  function connectWallet() {
+    if (window.tronWeb && window.tronWeb.ready) {
+      showToast('TronLink detected — wallet integration pending contract deployment');
+    } else {
+      showToast('No TRON wallet detected. Install TronLink to connect.');
     }
+  }
+  window.connectWallet = connectWallet;
 
-    function drawParticles() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(48, 224, 160, ${p.alpha})`;
-        ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-      });
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
+  // ─── FAQ (33 questions) ───
+  const faqs = [
+    ["What is JustSwap?", "JustSwap is a decentralized exchange (DEX) built on the TRON network. It lets you swap TRC-20 tokens, provide liquidity, stake TRX, and borrow against your holdings, all directly from a self-custody wallet without creating an account."],
+    ["How does JustSwap work on the TRON network?", "JustSwap uses smart contracts deployed on TRON to run an automated market maker (AMM). Liquidity providers deposit token pairs into pools, and traders swap against those pools at prices set by the pool's ratio and fee curve."],
+    ["Is JustSwap safe to use?", "JustSwap is non-custodial, meaning it never holds your funds — you sign every transaction yourself. That said, DeFi carries inherent risks including smart contract bugs, impermanent loss, and market volatility, so only trade with funds you can afford to lose."],
+    ["What is TRC-20?", "TRC-20 is TRON's token standard, similar to Ethereum's ERC-20. It defines how tokens on TRON are created, transferred, and tracked, allowing wallets and DEXs like JustSwap to interact with them consistently."],
+    ["How do I connect a TronLink wallet to JustSwap?", "Install the TronLink browser extension or mobile app, create or import a wallet, then click 'Connect Wallet' on JustSwap and approve the connection request. JustSwap never sees your private key or seed phrase."],
+    ["What tokens can I swap on JustSwap?", "JustSwap supports TRC-20 tokens with an active liquidity pool, including TRX and major stablecoins like USDT and USDC on TRON. Available pairs depend on which pools have been created and funded by liquidity providers."],
+    ["What are the trading fees on JustSwap?", "Each swap carries a 0.30% fee, which is distributed to the liquidity providers of that specific pool rather than kept by JustSwap itself."],
+    ["How does an automated market maker (AMM) work?", "An AMM uses a mathematical formula (commonly x*y=k) to price trades based on the ratio of two tokens in a liquidity pool, instead of matching individual buy and sell orders like a traditional order book exchange."],
+    ["What is slippage and how do I set it?", "Slippage is the difference between the expected price of a trade and the price at which it actually executes, caused by the trade itself moving the pool's ratio. You can set a maximum slippage tolerance to protect against unfavorable price movement while your transaction confirms."],
+    ["What is impermanent loss?", "Impermanent loss happens when the price ratio of the two tokens you've deposited into a liquidity pool changes compared to when you deposited them, resulting in your withdrawn value being lower than if you had simply held the tokens."],
+    ["How do I provide liquidity on JustSwap?", "Go to the Pool tab, choose a token pair, deposit equal value of both tokens, and confirm the transaction in your wallet. You'll receive LP tokens representing your share of the pool."],
+    ["What is a liquidity pool?", "A liquidity pool is a smart contract holding reserves of two (or more) tokens that traders swap against. Liquidity providers fund the pool and earn a share of trading fees in return."],
+    ["What are LP tokens used for?", "LP tokens represent your proportional share of a liquidity pool. You redeem them to withdraw your original tokens plus any accrued fees, and in some protocols they can also be staked for additional rewards."],
+    ["What is TRON staking?", "TRON staking involves locking TRX to support network operations (via TRON's Proxy/Vote or Stake 2.0 mechanism) or a protocol's own staking pool, earning rewards in return for helping secure or provide resources to the network."],
+    ["How do I stake TRX on JustSwap?", "Open the Staking tab, choose a lock period (flexible or fixed-term), enter the amount of TRX to stake, and confirm in your wallet. Flexible staking can be withdrawn anytime; fixed-term staking locks funds until maturity for a higher rate."],
+    ["What is the difference between staking and providing liquidity?", "Staking involves locking a single asset (like TRX) to earn a fairly predictable yield, while providing liquidity involves depositing a pair of assets into a pool and earning variable trading fees — with added exposure to impermanent loss."],
+    ["What is APY and how is it calculated?", "APY (Annual Percentage Yield) is the estimated yearly return on a deposit, including the effect of compounding. On JustSwap, staking and pool APYs are estimates based on current rates and trading activity, and will fluctuate."],
+    ["What is JustSwap Credit?", "JustSwap Credit lets you deposit crypto as collateral and borrow other assets (such as stablecoins) against it, without selling your original holdings."],
+    ["How does collateralized borrowing work on TRON?", "You lock collateral (e.g. TRX) in a smart contract, which then lets you borrow up to a set loan-to-value (LTV) ratio. If the value of your collateral falls too far relative to your loan, part of it can be liquidated to repay the debt."],
+    ["What is a liquidation and how is it triggered?", "Liquidation happens when your loan's LTV ratio rises above the protocol's liquidation threshold, typically because your collateral's price dropped. Part of your collateral is then sold to repay the loan and restore a safe LTV."],
+    ["What is TRON Energy and Bandwidth?", "Energy and Bandwidth are TRON's resource units used to pay for smart contract execution and transactions instead of a traditional gas token. You can obtain them by staking TRX or by burning a small amount of TRX directly."],
+    ["Why do I need TRX for gas fees?", "Even when swapping TRC-20 tokens like USDT, the underlying transaction consumes TRON's Energy and Bandwidth resources. If you don't have enough staked or free resources, TRX is burned automatically to cover the cost."],
+    ["What wallets are compatible with JustSwap?", "JustSwap works with TRON-compatible wallets such as TronLink (browser extension and mobile app), and other WalletConnect-enabled TRON wallets."],
+    ["Is JustSwap decentralized and non-custodial?", "Yes. JustSwap's smart contracts execute swaps, pool deposits, staking, and lending directly on-chain. JustSwap never takes custody of your funds — every action requires your signature from your own wallet."],
+    ["Can I bridge assets from Ethereum to TRON to use on JustSwap?", "Yes, third-party cross-chain bridges can move assets like USDT from Ethereum or BNB Chain to their TRC-20 equivalent on TRON, which you can then use on JustSwap. Always verify bridge contracts independently before using them."],
+    ["What is the difference between JustSwap and Uniswap?", "Both are AMM-based DEXs, but JustSwap runs on TRON while Uniswap runs on Ethereum. This generally means lower transaction costs and faster confirmation times on JustSwap, at the cost of TRON's smaller DeFi ecosystem compared to Ethereum."],
+    ["Can I use JustSwap on mobile?", "Yes — JustSwap's interface is responsive and works in a mobile browser or inside the built-in browser of mobile TRON wallets like the TronLink app."],
+    ["What is a price oracle and why does it matter for DeFi lending?", "A price oracle feeds real-world asset prices to a smart contract so it can value collateral accurately. Reliable oracles are critical for lending protocols like JustSwap Credit to trigger liquidations fairly and on time."],
+    ["How do I avoid front-running or MEV when swapping?", "Setting a reasonable slippage tolerance, avoiding unusually large trades on thin pools, and using a private or low-latency RPC endpoint can reduce exposure to front-running and other forms of MEV (maximal extractable value)."],
+    ["What is TRX and what is it used for?", "TRX is TRON's native cryptocurrency. It's used to pay for network resources (Energy and Bandwidth), participate in staking and governance, and as a base trading pair across most TRON DEXs, including JustSwap."],
+    ["How long do transaction confirmations take on TRON?", "TRON produces a new block roughly every 3 seconds, so swaps, staking, and lending transactions on JustSwap typically confirm within a few seconds under normal network conditions."],
+    ["What are the main risks of using a DEX like JustSwap?", "Key risks include smart contract vulnerabilities, impermanent loss on liquidity positions, liquidation risk on borrowed positions, and general market volatility. Only interact with contract addresses you've verified yourself."],
+    ["How do I add a custom TRC-20 token to my wallet?", "In TronLink, use the 'Add Token' or 'Import Token' option and paste the token's verified TRC-20 contract address (available on TronScan) to display its balance in your wallet."]
+  ];
 
-    // ─── STATE ───
-    let swapFrom = 'TRX', swapTo = 'USDT';
-    const SWAP_FEE = 0.0005;
+  const grid = document.getElementById('faqGrid');
+  faqs.forEach(([q, a]) => {
+    const item = document.createElement('div');
+    item.className = 'faq-item';
+    item.innerHTML = `<div class="faq-question" onclick="toggleFaq(this)">${q} <span>+</span></div><div class="faq-answer">${a}</div>`;
+    grid.appendChild(item);
+  });
 
-    // ─── TOAST ───
-    function showToast(msg) {
-      const el = document.getElementById('globalToast');
-      el.textContent = msg;
-      el.classList.add('show');
-      clearTimeout(el._timer);
-      el._timer = setTimeout(() => el.classList.remove('show'), 3000);
-    }
-    window.showToast = showToast;
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    answer.classList.toggle('open', !isOpen);
+    el.querySelector('span').textContent = isOpen ? '+' : '−';
+  }
+  window.toggleFaq = toggleFaq;
 
-    // ─── TAB SWITCHING ───
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      document.getElementById('tab-' + tabId).classList.add('active');
-      document.querySelectorAll('.widget-tab').forEach(t => t.classList.remove('active'));
-      document.querySelector(`.widget-tab[data-tab="${tabId}"]`).classList.add('active');
-    }
-    window.switchTab = switchTab;
-
-    // ─── SWAP CALC ───
-    function updateSwapCalc() {
-      let amount = parseFloat(document.getElementById('swapAmount').value);
-      if (isNaN(amount) || amount <= 0) {
-        document.getElementById('swapReceive').textContent = '0.0000 ' + swapTo;
-        document.getElementById('swapFee').textContent = '0.0000';
-        return;
-      }
-      let fee = amount * SWAP_FEE;
-      let receive = amount - fee;
-      // Simulate rate (1 TRX ≈ 0.12 USDT, adjust based on from/to)
-      let rate = 0.12;
-      if (swapFrom === 'TRX' && swapTo === 'USDT') rate = 0.12;
-      else if (swapFrom === 'USDT' && swapTo === 'TRX') rate = 8.33;
-      else if (swapFrom === 'TRX' && swapTo === 'USDC') rate = 0.12;
-      else if (swapFrom === 'USDC' && swapTo === 'TRX') rate = 8.33;
-      else if (swapFrom === 'USDT' && swapTo === 'USDC') rate = 1.0;
-      else if (swapFrom === 'USDC' && swapTo === 'USDT') rate = 1.0;
-      else rate = 0.12; // fallback
-
-      let receiveAmount = receive * rate;
-      document.getElementById('swapReceive').textContent = receiveAmount.toFixed(4) + ' ' + swapTo;
-      document.getElementById('swapFee').textContent = fee.toFixed(4) + ' ' + swapFrom;
-      document.getElementById('swapRate').textContent = '1 ' + swapFrom + ' ≈ ' + rate.toFixed(4) + ' ' + swapTo;
-    }
-    window.updateSwapCalc = updateSwapCalc;
-
-    function selectSwapAsset(el, asset) {
-      // This function sets the "from" asset
-      swapFrom = asset;
-      document.querySelectorAll('#tab-swap .asset-tab').forEach(tab => tab.classList.remove('active'));
-      el.classList.add('active');
-      document.getElementById('fromToken').innerText = asset;
-      updateSwapCalc();
-      showToast('From asset changed to ' + asset);
-    }
-    window.selectSwapAsset = selectSwapAsset;
-
-    function flipSwap() {
-      let temp = swapFrom;
-      swapFrom = swapTo;
-      swapTo = temp;
-      document.getElementById('fromToken').innerText = swapFrom;
-      document.getElementById('toToken').innerText = swapTo;
-      // Update active tab highlight (just visual)
-      document.querySelectorAll('#tab-swap .asset-tab').forEach(tab => {
-        tab.classList.remove('active');
-        if (tab.innerText.trim() === swapFrom) tab.classList.add('active');
-      });
-      updateSwapCalc();
-      showToast('Swapped: ' + swapFrom + ' ↔ ' + swapTo);
-    }
-    window.flipSwap = flipSwap;
-
-    // ─── WALLET MODAL (placeholder) ───
-    function openWalletModal() {
-      showToast('🔗 Connect your TronLink wallet to continue.');
-    }
-    window.openWalletModal = openWalletModal;
-
-    // ─── FAQ TOGGLE ───
-    function toggleFaq(el) {
-      let answer = el.nextElementSibling;
-      let isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-      if (isOpen) {
-        answer.style.maxHeight = '0px';
-        el.querySelector('span').innerHTML = '+';
-      } else {
-        answer.style.maxHeight = '200px';
-        el.querySelector('span').innerHTML = '−';
-      }
-    }
-    window.toggleFaq = toggleFaq;
-
-    // ─── INITIAL SWAP CALC ───
-    setTimeout(updateSwapCalc, 100);
-
-  })();
+  // Structured data FAQPage
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(([q, a]) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(script);
+})();
 </script>
-<script src="./modernizr-3.12.0.js" type="module"></script>
 
+<script src="./modernizr-3.12.0.js" type="module"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1d304b9007cf43cbbe1a05bd99236570","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
